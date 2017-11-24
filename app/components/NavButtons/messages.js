@@ -14,8 +14,8 @@ export default defineMessages({
     id: 'yj_homepage.components.Header.FAQ',
     defaultMessage: 'FAQ',
   },
-  mission: {
-      id: 'yj_homepage.components.Header.mission',
-      defaultMessage: 'Mission'
+  philosophy: {
+      id: 'yj_homepage.components.Header.philosophy',
+      defaultMessage: 'Philosophy'
   }
 });

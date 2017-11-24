@@ -14,11 +14,11 @@ const buttonStyles = css`
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: bold;
   font-size: 16px;
-  border: 2px solid #1B3E4C;
-  color: #1B3E4C;
+  border: 2px solid #30A9DE;
+  color: #30A9DE;
 
   &:active {
-    background: #1B3E4C;
+    background: #30A9DE;
     color: #fff;
     text-decoration: underline;
   }

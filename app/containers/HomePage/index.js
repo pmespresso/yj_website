@@ -29,22 +29,20 @@ import space_dao4 from '../../images/space_dao4.jpg';
 import space_dao5 from '../../images/space_dao5.jpg';
 import space_dao6 from '../../images/space_dao6.jpg';
 
+import FontAwesome from 'react-fontawesome';
 
 import bm_hero from '../../images/bm-hero.png';
 import bm_logo from '../../images/bm-logo.png';
 import bm_home from '../../images/bm-home.png';
 
-import yj_profile from '../../images/yj_profile.jpg';
-
-
 import  { Container, Row, Col } from 'reactstrap';
 import ProjectCard from 'components/ProjectCard';
-import Header from 'components/Header';
+
 
 import CenteredSection from './CenteredSection';
 import List from 'components/List';
 import ListItem from 'components/ListItem';
-
+import SideNav from 'components/SideNav';
 import Input from './Input';
 import Img from 'components/Img'
 import Section from './Section';
@@ -63,94 +61,39 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
   }
 
   render() {
-    const { loading, error, repos } = this.props;
+    const { loading, error } = this.props;
 
     const reposListProps = {
       loading,
-      error,
-      repos,
+      error
     };
 
-    //TODO: move this shit to S3 or just redux with local storage.
-
-    const space_imgs = [
-        {
-            src: space_dao1,
-            caption: '',
-            altText: ''
-        },
-        {
-            src: space_dao2,
-            caption: '',
-            altText: ''
-        },
-        {
-            src: space_dao3,
-            caption: '',
-            altText: ''
-        },
-        {
-            src: space_dao4,
-            caption: '',
-            altText: ''
-        },
-        {
-            src: space_dao5,
-            caption: '',
-            altText: ''
-        },
-        {
-            src: space_dao6,
-            caption: '',
-            altText: ''
-        }
-    ];
-
-    const bm_imgs = [
-        {
-            src: bm_home,
-            caption: '',
-            altText: ''
-        },
-        {
-            src: bm_hero,
-            caption: '',
-            altText: ''
-        }
-    ]
-
     return (
+
       <article>
         <Helmet>
-          <title>YJ's Website of sorts....</title>
+          <title>YJ Kim</title>
           <meta name="description" content="YJ Kim's Website of sorts..." />
         </Helmet>
         <div>
 
-          <Container style={{paddingTop: '90px'}}>
+          <Container>
               <br/>
               <Row>
-                <Col xs="4" sm="4">
-                    <Section style={{width: '30%', position: 'fixed'}}>
-                        <Img src={yj_profile} alt="yj profile" style={{alignItems: 'center', justifyContent: 'center', borderRadius: '50', height: '50', width: '50'}}/>
+                <SideNav/>
 
-                        <H1>
-                          <FormattedMessage {...messages.startProjectHeader} />
-                        </H1>
-                        <p>
-                          <FormattedMessage {...messages.startProjectMessage} />
-                        </p>
-                        <Header />
+                <Col xs="12" sm="12" md="8" lg="8" >
+                    <Section>
+                        <H2>Shenanigans Update</H2>
+                        <p>October - November</p>
                     </Section>
-                </Col>
-                <Col xs="1" sm="1"></Col>
-                <Col xs="7" sm="7">
-                    <H2 style={{textDecoration: 'bold'}}>
-                        Yj's Shenanigans | Update: October - November 2017
-                    </H2>
+
                     <Section id="projects" style={{display: 'flex', flexDirection: 'column'}}>
-                            <ProjectCard style={{flex: '1'}} card_imgs={space_imgs} card_title={<FormattedMessage {...messages.spaceProjectTitle}/>} card_text={<FormattedMessage {...messages.spaceProjectExcerpt}/>} card_button_text={'Learn More'} target={'https://www.devpost.com'} />
-                            <ProjectCard style={{flex: '1'}} card_imgs={bm_imgs} card_title={<FormattedMessage {...messages.bmProjectTitle}/>} card_text={<FormattedMessage {...messages.bmProjectExcerpt}/>} card_button_text={'Have a Listen'} target={'https://www.bearmindspodcast.com'} />
+                        <ProjectCard style={{flex: '1'}} complete={false} card_title={<FormattedMessage {...messages.neuralNetProjectTitle}/>} card_text={<FormattedMessage {...messages.neuralNetProjectExcerpt}/>} card_button_text={'View Demo'} target={''} />
+                            <ProjectCard style={{flex: '1'}} complete={true} card_title={<FormattedMessage {...messages.spaceProjectTitle}/>} card_text={<FormattedMessage {...messages.spaceProjectExcerpt}/>} card_button_text={'Learn More'} target={'https://devpost.com/software/space-dao'} />
+                            <ProjectCard style={{flex: '1'}} complete={true} card_title={<FormattedMessage {...messages.bmMullerTitle}/>} card_text={<FormattedMessage {...messages.bmMullerExcerpt}/>} card_button_text={'Have a Listen'} target={'https://www.bearmindspodcast.com/listen/2017/11/13/richard-muller-climate-change-the-physics-of-time'} />
+                            <ProjectCard style={{flex: '1'}} complete={true} card_title={<FormattedMessage {...messages.bmFilipenkoTitle}/>} card_text={<FormattedMessage {...messages.bmFilipenkoExcerpt}/>} card_button_text={'Have a Listen'} target={'https://www.bearmindspodcast.com/listen/2017/11/7/alex-filippenko-the-accelerating-expansion-of-the-universe'} />
+                            <ProjectCard style={{flex: '1'}} complete={false} card_title={<FormattedMessage {...messages.implicitBiasProjectTitle}/>} card_text={<FormattedMessage {...messages.implicitBiasProjectExcerpt}/>} card_button_text={'Check it out'} target={''} />
                     </Section>
                 </Col>
             </Row>

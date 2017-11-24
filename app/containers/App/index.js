@@ -13,7 +13,7 @@ import { Switch, Route } from 'react-router-dom';
 
 import HomePage from 'containers/HomePage/Loadable';
 import Faq from 'containers/Faq/Loadable';
-// import Mission from 'containers/Mission/Loadable';
+import Philosophy from 'containers/Philosophy';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 
 import ProjectPage from 'containers/ProjectPage/Loadable';
@@ -25,7 +25,7 @@ const AppWrapper = styled.div`
   margin: 0 auto;
   display: flex;
   min-height: 100%;
-  padding: 0 16px;
+  padding: 90px 0;
   flex-direction: column;
 `;
 
@@ -42,7 +42,7 @@ export default function App() {
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/faq" component={Faq} />
-        {/* <Route path="/mission" component={Mission} /> */}
+        <Route path="/philosophy" component={Philosophy} />
         <Route path="" component={NotFoundPage} />
         <Route path="/projects" component={ProjectPage} />
       </Switch>
